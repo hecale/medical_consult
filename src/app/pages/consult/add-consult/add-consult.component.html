@@ -1,0 +1,52 @@
+<div *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="!loading" fxLayoutAlign="center top" fxFlexFill class="main-div">
+  <mat-card fxFlex="50">
+    <mat-toolbar color="primary">Consult registration form</mat-toolbar>
+    <form *ngIf="!loading" class="needs-validation" (ngSubmit)="addConsult()" [formGroup]="consultForm">
+      <div class="row">
+        <div class="col">
+          <mat-form-field>
+            <mat-label>Doctor *</mat-label>
+            <mat-select formControlName="doctorId">
+              <mat-option *ngFor="let doctor of doctors" [value]="doctor.id">{{doctor.firstName}} {{doctor.lastName}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field>
+            <mat-label>Patient *</mat-label>
+            <mat-select formControlName="patientId">
+              <mat-option  *ngFor="let patient of patients" [value]="patient.id">{{patient.firstName}} {{patient.lastName}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field>
+            <input matInput placeholder="Description *" type="text" class="form-control" id="validationDescription" formControlName="description"
+              [ngClass]="{'is-valid': form.description.errors == null}">
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field>
+            <input matInput placeholder="medicine *" type="text" class="form-control" id="validationMedicine" formControlName="medicine"
+              [ngClass]="{'is-valid': form.medicine.errors == null}">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button  mat-raised-button color="primary" type="submit">Register</button>
+        </div>
+        <div class="col">
+
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>
+

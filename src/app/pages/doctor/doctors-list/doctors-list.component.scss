@@ -1,0 +1,30 @@
+.full-width-table {
+  width: 80%;
+  margin: 20px auto;
+}
+
+img{
+  max-width: 150px;
+  max-height: 150px;
+}
+
+form {
+  display: flex;
+
+  mat-form-field {
+   max-width: 300px;
+   padding: 5px;
+  }
+
+  button {
+    min-width: 100px;
+    height: 30px;
+    margin-top: 20px;
+  }
+ }
+
+ mat-spiner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
